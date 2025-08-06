@@ -1,8 +1,8 @@
 const express = require("express")
-const zod = require("zod");
+const z = require("zod");
 const app = express();
 
-const schema = zod.array(zod.number());
+const schema = z.array(z.number());
 
 app.use(express.json());
 
