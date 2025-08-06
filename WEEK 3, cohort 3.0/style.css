@@ -1,0 +1,19 @@
+.buts{
+    color: white;
+    font-size: 8mm ;
+    background-color: rgb(0, 183, 255);
+    cursor: pointer;
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+}
+
+#number{
+    color: white;
+    font-weight: 400;
+    font-size: 900%;
+    padding-bottom: 1cm;
+    padding-top: 8mm;
+}

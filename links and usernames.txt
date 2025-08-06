@@ -1,0 +1,14 @@
+1.	MONGO DB :
+mongodb+srv://aryanjhaop:<db_password>@cluster0.dn3bnq9.mongodb.net/
+
+password:y8AczO8vm6v2PD90
+
+___________________________________________
+
+2. POSTGRE neon
+
+psql 'postgresql://neondb_owner:npg_yA0Eb3QIghnJ@ep-wispy-bar-ae233ql0-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
+-----
+password less auth : psql -h pg.neon.tech
+
+_______________________________________________

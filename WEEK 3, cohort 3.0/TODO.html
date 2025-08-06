@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LIST</title>
+</head>
+<body>
+    
+    <h1>TO-DO APP</h1>
+    <div class="dos">
+        <h1>complete the tasks</h1>
+    </div>
+    <input type="text">
+    <button onclick="addin()" style="cursor: pointer;">ADD</button>
+
+    <script>
+        let cnt=1;
+        function addin(){
+            let x = document.querySelector("input");
+            const niu = document.createElement("div");
+            niu.setAttribute("id",cnt)
+            niu.innerHTML = "<span style='padding-right:1mm'>" +x.value + "</span><button onclick='delt("+cnt+")'>Delete</button>";
+            document.querySelector(".dos").appendChild(niu);
+            cnt++
+
+        }
+        function delt(ind){
+            let x = document.getElementById(ind);
+            x.parentNode.removeChild(x)
+
+        }
+    </script>
+
+
+</body>
+</html>

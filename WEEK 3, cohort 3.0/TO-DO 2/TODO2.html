@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="head">
+        <div class="tit">TO-DO APP</div>
+    </div>
+    <div class="main">
+        <input id="inp" type="text">
+        <button id="btn" onclick="Addit()">ADD</button>
+    </div>
+    <div class="newel"></div>
+
+
+
+    <script>
+        let cnt=0
+        function Deltodo(ind){
+            let d = document.getElementById(ind)
+            d.parentNode.removeChild(d)
+        }
+        function Addit(){
+            let x = document.querySelector("input").value
+            if(x!=""){
+                let spn = document.createElement("span");
+                let dtbtn = document.createElement("button");
+                spn.innerHTML = x;
+                dtbtn.innerHTML = "Delete";
+                let dib = document.createElement("div");
+                dib.setAttribute("id",cnt)
+                dtbtn.setAttribute("class","dtbin")
+                spn.setAttribute("class","inval")
+                dib.appendChild(spn)
+                dib.appendChild(dtbtn)
+                document.querySelector(".newel").appendChild(dib)
+                dtbtn.setAttribute("onclick","Deltodo("+cnt+")")
+                cnt++;
+            }
+        }
+    </script>
+
+
+</body>
+</html>

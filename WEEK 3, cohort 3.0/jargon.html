@@ -1,0 +1,30 @@
+<body>
+  <input type="text"></input>
+  <button onclick="addTodo()">Add todo!</button>
+  <script>
+    let todos = [];
+    function addTodo() {
+      todos.push({
+        title: document.querySelector("input").value
+      })
+      render();
+    }
+
+    function deleteTodo() {
+      
+      render();
+    }
+ 
+    function render() {
+      let n = todos.length
+      let dilv = document.createElement("div")
+      let hl = document.createElement("h1")
+      let btn = document.createElement("button")
+      hl.innerHTML=todos[n-1].title
+      btn.innerHTML = "delete"
+      dilv.appendChild(hl)
+      dilv.appendChild(btn)
+      document.querySelector("body").appendChild(dilv)
+    }
+  </script>
+</body>

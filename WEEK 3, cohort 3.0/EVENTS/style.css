@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(18, 18, 32);
+}
+
+#clk {
+    font-size: 10mm;
+    color: white;
+    background-color: rgb(95, 17, 192);
+}
+#result {
+    font-size: 10mm;
+    color: white;
+    background-color: rgb(214, 150, 13);
+}

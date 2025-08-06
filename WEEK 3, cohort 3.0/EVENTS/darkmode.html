@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="1" onclick="turn()" ondblclick="back()">MODE</button>
+
+    <script>
+        let curmode = "uu"
+        function turn(){
+            if(curmode==="uu"){
+                document.querySelector("body").style.backgroundColor="black";
+                curmode = "aa";
+            }
+            else if(curmode === "aa"){
+                document.querySelector("body").style.backgroundColor="white";
+                curmode="uu";
+            }
+        }
+        // function back()
+    </script>
+
+</body>
+</html>

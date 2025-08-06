@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: rgb(13, 13, 26);">
+
+    <div style="padding-top: 40mm;">
+        <div class="text">
+            <div style="font-size: 400%; color: rgb(255, 255, 255);">
+                STOP WATCH
+            </div>
+        </div>
+    
+        <div class="text" id="number">
+            <div id="number2">0</div>
+        </div>
+    
+        <div class="text">
+            <div style="padding-right: 1cm;">
+                <button onclick="beg()" class="buts">START</button>
+            </div>
+            <div style="padding-right: 1cm;">
+                <button onclick="stopp(); alert('time has stopped') " class="buts">STOP</button>
+            </div>
+            <div >
+                <button onclick="reset()" class="buts">RESET</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        let x
+        function beg(){
+            x = setInterval(rep,1000)
+        }
+        let cnt = 0;
+        function rep(){
+            let x = document.querySelector("#number2");
+            x.innerHTML = cnt
+            cnt++
+        }
+        function stopp(){
+            clearInterval(x)
+        }
+        function reset(){
+            let x = document.querySelector("#number2");
+            x.innerHTML = 0;
+            cnt=0;
+            stopp()
+        }
+    </script>
+</body>
+</html>

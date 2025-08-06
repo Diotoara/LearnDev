@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div id="title">
+            <h1>"Hello"</h1>
+            <button onclick="deleting('title')">Delete</button>
+        </div>
+        <div id="work">
+            <h2 >1.brush</h2>
+            <button onclick="deleting('work')">Delete</button>
+        </div>
+    </div>
+    <script>
+        function deleting(x){
+        let a = document.querySelector("#"+x)
+        a.parentNode.removeChild(a)
+        }
+    </script>
+</body>
+</html>
