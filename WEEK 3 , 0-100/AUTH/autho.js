@@ -45,10 +45,16 @@ app.post("/signin", function(req,res){
         });
     }
 
-    res.send({
-        msg:"you have logged in successfully!"
-    })
+        var token = jwt.sign({id: username , pwd: password},jwtPassword);
+        return res.json({
+            token,
+        });
+});
 
+app.get("/users", function(req,res){
+    const token = req.headers.authorization;     //just a var name-authorization.needs to filled in header
+    const decode = jwt.verify(token,jwtPassword);   // decodes the token to get all the elements. 
+    const username = decode.username;           //from the decode we extract the username.
 })
 
 app.listen(3000)
