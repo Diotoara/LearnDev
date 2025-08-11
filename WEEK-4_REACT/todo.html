@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="title" placeholder="input title here">
+    <br><br>
+    <input type="text" id="content" placeholder="input content here">
+    <button onclick="add()">ADD</button>
+    <div id="big"></div>
+
+
+    
+    
+    <script>
+        let id = 0;
+        AddToDo([
+            {
+                title : "wake up",
+                content : "before 6:30 am",
+            },
+            {
+                title : "fresh up",
+                content : "brush and take a bath",
+            },
+            {
+                title : "WebDev",
+                content : "Complete React Basics",
+            },
+            {
+                title : "DSA",
+                content : "Start Heaps",
+            },
+        ])
+        function dlt(n){
+            let x = document.getElementById(n);
+            x.parentNode.removeChild(x);
+        }
+        function newChild(title, description, id){
+            const titDiv = document.createElement("div")
+            titDiv.innerHTML = title;
+            const disDiv = document.createElement("div")
+            disDiv.innerHTML = description;
+            const btn = document.createElement("button")
+            btn.innerHTML = "mark as done!"
+            btn.setAttribute("onclick",`dlt(${id})`)
+            const parent = document.createElement("div");
+            parent.setAttribute("id",id);
+            parent.appendChild(titDiv)
+            parent.appendChild(disDiv)
+            parent.appendChild(btn)
+            const brk = document.createElement("br")
+            parent.appendChild(brk);
+            return parent;            
+        }
+        let num = 100;
+        function add(){
+            let newD = document.getElementById("big")
+            let til = document.getElementById("title").value
+            let cont = document.getElementById("content").value
+            newD.appendChild(newChild(til,cont,num))
+            num++;
+        }
+
+        function AddToDo(state){
+            let newDiv = document.getElementById("big")
+            for(let i=0;i<state.length;i++){
+                newDiv.appendChild(newChild(state[i].title,state[i].content,id))
+                id++;
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>
