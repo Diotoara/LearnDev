@@ -11,30 +11,31 @@
     <input type="text" id="content" placeholder="input content here">
     <button onclick="add()">ADD</button>
     <div id="big"></div>
+    <br><br><br><br><br>
 
 
     
     
     <script>
         let id = 0;
-        AddToDo([
-            {
-                title : "wake up",
-                content : "before 6:30 am",
-            },
-            {
-                title : "fresh up",
-                content : "brush and take a bath",
-            },
-            {
-                title : "WebDev",
-                content : "Complete React Basics",
-            },
-            {
-                title : "DSA",
-                content : "Start Heaps",
-            },
-        ])
+        // AddToDo([
+        //     {
+        //         title : "wake up",
+        //         content : "before 6:30 am",
+        //     },
+        //     {
+        //         title : "fresh up",
+        //         content : "brush and take a bath",
+        //     },
+        //     {
+        //         title : "WebDev",
+        //         content : "Complete React Basics",
+        //     },
+        //     {
+        //         title : "DSA",
+        //         content : "Start Heaps",
+        //     },
+        // ])
         function dlt(n){
             let x = document.getElementById(n);
             x.parentNode.removeChild(x);
@@ -56,6 +57,16 @@
             parent.appendChild(brk);
             return parent;            
         }
+        
+        function AddToDo(state){
+            let newDiv = document.getElementById("big")
+            newDiv.innerHTML = ""
+            for(let i=0;i<state.length;i++){
+                newDiv.appendChild(newChild(state[i].title,state[i].content,id))
+                id++;
+            }
+        }
+        
         let num = 100;
         function add(){
             let newD = document.getElementById("big")
@@ -64,15 +75,13 @@
             newD.appendChild(newChild(til,cont,num))
             num++;
         }
-
-        function AddToDo(state){
-            let newDiv = document.getElementById("big")
-            for(let i=0;i<state.length;i++){
-                newDiv.appendChild(newChild(state[i].title,state[i].content,id))
-                id++;
-            }
-        }
-
+        
+        setInterval(async function(){
+            const data = await fetch("http://localhost:3000/todos")
+            const upd = await data.json();
+            AddToDo(upd);
+        }, 1000)
+    
     </script>
 
 
