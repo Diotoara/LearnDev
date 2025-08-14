@@ -20,18 +20,24 @@ app.post("/signup", async function(req,res){
     //check for data is not database
     const existingData = await AllUsers.findOne({email:mail})
     if (existingData){
-        res.status(403).send({msg: "user already exists"});
+        return res.status(403).send({msg: "user already exists"});
     }
 
     //entering
-    const newUser = new AllUsers({
+    await AllUsers.create({
         name : myName,
         email : mail,
         password : password
     })
-    res.send("data added");
+    res.send("done")
 
-    newUser.save();
+    // const newUser = new AllUsers({
+    //     name : myName,
+    //     email : mail,
+    //     password : password
+    // })
+    // await newUser.save();
+    // res.send("data added");
     
 })
 
