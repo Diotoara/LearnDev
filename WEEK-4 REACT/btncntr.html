@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        script = {
+            count : 0,
+        }
+        function increasecnt(){
+            let x = document.querySelector("button")
+            x.parentNode.removeChild(x)
+            script.count++
+            ButtonRender()
+        }
+
+        function ButtonRender(){
+            let btn = document.createElement("button")
+            btn.innerHTML = `Counter : ${script.count}`
+            btn.setAttribute("onclick","increasecnt()")
+            document.querySelector("body").appendChild(btn)
+        }
+
+        ButtonRender()
+    </script>
+</body>
+</html>
