@@ -18,6 +18,7 @@ app.post("/todo", async function(req, res) {
         return
     }
 
+    //add entry to db
     await todo.create({
         title : newTodo.title,
         description : newTodo.description,
@@ -26,7 +27,6 @@ app.post("/todo", async function(req, res) {
     res.json({
         msg : "Todo C4eated"
     })
-    //add entry to db
 
 })
 

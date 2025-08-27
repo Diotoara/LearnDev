@@ -23,6 +23,8 @@
             niu.innerHTML = "<span style='padding-right:1mm'>" +x.value + "</span><button onclick='delt("+cnt+")'>Delete</button>";
             document.querySelector(".dos").appendChild(niu);
             cnt++
+            x.value = "";
+
 
         }
         function delt(ind){
