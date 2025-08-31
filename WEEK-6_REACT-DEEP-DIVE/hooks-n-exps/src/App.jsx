@@ -8,20 +8,17 @@ function Headder( {collor,txt}) {
     <>
       <h1 style={{
         color : collor,
-        marginLeft : 20,
+        marginLeft : 10,
         }}>{txt}</h1>
     </>
   )
 }
 
-
 function App() {
-
   return (
     <>
       <Headder collor="red" txt="hello world" />
       <Headder collor="blue" txt="this is aryan this side" />
-      <Headder collor="white" txt="aight, listen "/>
     </>
   )
 }
