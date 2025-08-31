@@ -3,22 +3,27 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function Headder( {collor,txt}) {
-  return(
-    <>
-      <h1 style={{
-        color : collor,
-        marginLeft : 10,
-        }}>{txt}</h1>
-    </>
-  )
-}
+// function Headder( {txt}) {
+//   return(
+//     <>
+//       <h1>{txt}</h1>
+//     </>
+//   )
+// }
+
 
 function App() {
+  const [txt, setTxt] = useState("this will tell you today's weather")
+
+  function newHead(){
+    setTxt("today's weather is " + Math.random()*10 +" ");
+  }
+
   return (
     <>
-      <Headder collor="red" txt="hello world" />
-      <Headder collor="blue" txt="this is aryan this side" />
+      <button  onClick={newHead}>Click to change top</button>
+      <br />
+      {txt}
     </>
   )
 }
