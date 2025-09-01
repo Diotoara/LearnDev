@@ -15,7 +15,7 @@ function Todo({title, desc}){
 
 function App() {
 
-  const [todos, useTodos] = useState([{
+  const [todos, setTodos] = useState([{
     id: 1,
     title: "go to gym",
     desc: "from 8 to 10 am"
@@ -28,10 +28,19 @@ function App() {
     title:"have breakfast",
     desc : "from 7 to 8 am"
   }])
+  
+
+  function addTodo(){
+    setTodos([...todos,{
+      id:4,
+      title:"new todo",
+      desc :"it works"
+    }])
+  }
 
   return (
     <>    
-      {/* {todos.map(todo => <Todo title={todo.title} desc={todo.desc} />)} */}
+      <button onClick={addTodo} >Add Todo</button>
       {todos.map (function(todo){
         return <Todo title={todo.title} desc={todo.desc} />
       })}
