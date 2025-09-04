@@ -6,6 +6,7 @@ import './App.css'
 function App() {
 
   const [todos, setTodos] = useState([])
+  const [cnt, setCnt] = useState(0)
 
   useEffect( () => {
     fetch("http://localhost:3000/todos")
@@ -13,15 +14,19 @@ function App() {
         const json = await res.json();
         setTodos(json);
       })
-    }, [] )
+    }, [cnt] )
+
+    function incnt(){
+      setCnt(cnt => cnt+1)
+    }    
     
-    
+    //make a button of update todo which update todos, instead of reloading to update.
+
+
     return (
       <>
-
-      {
-        todos.length > 0 ? (<Todos title={todos[0].title} description={todos[0].content}/>) : <p>loading...</p>
-      }
+      <button onClick={incnt}>Click to update Todo</button>
+      {todos.map(todo => <Todos title={todo.title} description={todo.content} />)}
 
     </>
   )
@@ -32,6 +37,7 @@ function Todos( {title, description}){
     <>
       <h1>{title}</h1>
       <h5>{description}</h5>
+      <br />
     </>
   )
 }
