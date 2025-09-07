@@ -1,26 +1,30 @@
-import { memo, useState } from "react";
+import { memo, useCallback, useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  function onClick() {
-    console.log("child clicked")
+  // const logi = useCallback(() => {
+  //   console.log("popo")
+  // },[])
+
+  function logi () {
+    console.log("new fnctn")
   }
 
-  return <div>
-    <Child onClick={onClick} />
-    <button onClick={() => {
-      setCount(count + 1);
-    }}>Click me {count}</button>
-  </div>
+
+  const Button = memo( ({fncn}) => {
+    console.log("only work when something changes")
+
+    return(
+      <button>click on me</button>
+    )
+  })
+
+
+  return(
+    <>
+      <Button fncn={logi}></Button>
+    </>
+  )  
 }
-
-const Child = memo(({fnc}) => {
-  console.log("child render")
-
-  return <div>
-    <button onClick={fnc}>Button clicked</button>
-  </div>
-})
 
 export default App;
