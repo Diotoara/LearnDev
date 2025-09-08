@@ -24,6 +24,8 @@ function App() {
   )
 }
 
+//damn y r 
+
 
 function CardWrapper({children}){
   return(
