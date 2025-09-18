@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-
+  console.log("testing")
   console.log("ek aur re-render")
 
   const [capita, setCapita] = useState({income:0})
