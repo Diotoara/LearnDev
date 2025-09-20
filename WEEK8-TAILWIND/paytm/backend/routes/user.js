@@ -5,12 +5,12 @@ const zod = require('zod')
 const jwt = require("jsonwebtoken")
 const JWTpass = require('../config')
 
-
+const {authMiddleware} = require("../middleware")
 
 const signUpbody = zod.object({
     email : zod.string().email(),
     name : zod.string(),
-    password : zod.email(),
+    password : zod.string(),
 })
 
 
@@ -41,6 +41,45 @@ userRouter.get("/signup", async function(req,res){
         msg : "user created",
         token : token,
     })
+})
+
+//update creds
+
+const updateBody = zod.object({
+    email : zod.string().email().optional(),
+    name : zod.string().optional(),
+    password : zod.string().optional(),
+
+})
+
+userRouter.put("/", authMiddleware, async(req,res)=>{
+    const {success} = updateBody.safeParse(req.body)
+    if(!success){
+        res.status(411).json({
+            msg : "error while updating, incorrect format"
+        })
+    }
+
+    await AllUser.updateOne({ _id: req.userId }, req.body); //did nt understood
+    res.json({
+        message: "Updated successfully"
+    })
+})
+
+userRouter.get("/bulk", authMiddleware, async(req,res)=>{
+    const filter = req.query.filter || "";
+
+    const users = await AllUser.find({
+        name : {"$regex" : filter}
+    })
+
+    res.json({
+        user : users.map(user => ({
+            name : user.name,
+            _id : user.id
+        }))
+    })
+
 })
 
 module.exports = userRouter 
