@@ -52,6 +52,7 @@ const updateBody = zod.object({
 
 })
 
+//update users
 userRouter.put("/", authMiddleware, async(req,res)=>{
     const {success} = updateBody.safeParse(req.body)
     if(!success){
@@ -66,6 +67,7 @@ userRouter.put("/", authMiddleware, async(req,res)=>{
     })
 })
 
+//get all users via filter
 userRouter.get("/bulk", authMiddleware, async(req,res)=>{
     const filter = req.query.filter || "";
 
@@ -76,6 +78,7 @@ userRouter.get("/bulk", authMiddleware, async(req,res)=>{
     res.json({
         user : users.map(user => ({
             name : user.name,
+            email : user.email,
             _id : user.id
         }))
     })
