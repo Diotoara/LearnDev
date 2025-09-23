@@ -1,6 +1,6 @@
 const express = require("express")
 const userRouter = express.Router();
-const AllUser = require('../db')
+const {AllUser, AllAccounts} = require('../db')
 const zod = require('zod')
 const jwt = require("jsonwebtoken")
 const JWTpass = require('../config')
@@ -35,7 +35,12 @@ userRouter.get("/signup", async function(req,res){
 
     const userid = newUser._id;
 
-    const token = jwt.sign({id:userid}, JWTpass)
+     await AllAccounts.create({
+        userid,
+        Balance: 1 + Math.random() * 10000
+    })
+
+    const token = gn({id:usjwt.sierid}, JWTpass)
 
     res.json({
         msg : "user created",

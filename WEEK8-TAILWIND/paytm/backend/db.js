@@ -24,10 +24,11 @@ const AllUser = mongoose.model('Users', UserSchema);
 
 const AccountSchema = new mongoose.Schema({
     userId : {
-        type : mongoose.Schema.Types.ObjectId,  //reffernce to user model
+        type : mongoose.Schema.Types.ObjectId,  
         ref:'Users',
         required : true,
     },
+
 
     Balance : {
         type: Number,
