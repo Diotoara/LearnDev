@@ -5,11 +5,15 @@ const {AllAccounts} = require('../db')
 
 router.get('/balance', authMiddleware , async(req,res)=>{
     const account = await AllAccounts.findOne({
-        userId : req.userid, 
+        userId : id1,
     });
 
+    if (!account) {
+    return res.status(404).json({ error: "Account not found" });
+  }
+
     res.json({
-        balance : account.Balance
+        "balance" : account.Balancey
     })
 })
 

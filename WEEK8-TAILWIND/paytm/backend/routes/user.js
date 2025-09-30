@@ -5,7 +5,8 @@ const zod = require('zod')
 const jwt = require("jsonwebtoken")
 const JWTpass = require('../config')
 
-const {authMiddleware} = require("../middleware")
+const authMiddleware = require("../middleware");
+// const { use } = require("react");
 
 const signUpbody = zod.object({
     email : zod.string().email(),
@@ -15,7 +16,7 @@ const signUpbody = zod.object({
 
 
 userRouter.get("/signup", async function(req,res){
-    const {success} = signUpbody.email.safeParse(req.body)
+    const {success} = signUpbody.safeParse(req.body)
     if(!success){
         return res.status(411).json({
             msg : "Invalid Input, Try again!"
@@ -33,14 +34,16 @@ userRouter.get("/signup", async function(req,res){
         password : req.body.password
     })
 
+    await newUser.save();
+
     const userid = newUser._id;
 
      await AllAccounts.create({
-        userid,
+        userId: userid,
         Balance: 1 + Math.random() * 10000
     })
 
-    const token = gn({id:usjwt.sierid}, JWTpass)
+    const token = jwt.sign({id:userid}, JWTpass)
 
     res.json({
         msg : "user created",
@@ -61,7 +64,7 @@ const updateBody = zod.object({
 userRouter.put("/", authMiddleware, async(req,res)=>{
     const {success} = updateBody.safeParse(req.body)
     if(!success){
-        res.status(411).json({
+        return res.status(411).json({
             msg : "error while updating, incorrect format"
         })
     }
