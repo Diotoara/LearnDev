@@ -27,7 +27,7 @@ function Signup(){
                     <InputBox label={"Email"} placeholder={"erwinSmith@cmd.com"} />
                 </div>
                 <div className="pl-6 py-4">
-                    <InputBox label={"Password"} placeholder={"p@$$w@&d"} />
+                    <InputBox label={"Password"} placeholder={""} />
                 </div>
                 <div className="pl-6">
                     <Button text={"Sign Up"}/>
