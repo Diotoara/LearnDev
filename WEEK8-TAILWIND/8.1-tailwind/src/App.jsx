@@ -1,13 +1,18 @@
-import React from "react"
-import { RevenueCard } from "./components/RevenueCard"
+import React from "react" 
+import { BrowserRouter, Routes, Route} from "react-router-dom"
+import Dashboard from "./Dashboard"
 import { div } from "motion/react-client"
 
 function App() {
 
   return (
-    <div className="grid grid-cols-4" >
-        <RevenueCard text={"Amount Pending"} amount={"$10,000"} order={13} ></RevenueCard>
-    </div>
+    <>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dashboard/>} />
+      </Routes>
+    </BrowserRouter>
+    </>
   )
 }
 
