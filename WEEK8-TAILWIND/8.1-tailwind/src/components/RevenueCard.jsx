@@ -2,7 +2,7 @@ import React from 'react'
 
 const RevenueCard = ({head, amount, num}) => {
   return (
-    <div className=' ml-4 shadow-lg w-90 h-25 rounded-md flex flex-col justify-center px-3'>
+    <div className=' shadow-lg w-90 h-25 rounded-md flex flex-col justify-center px-3'>
 
         <div className='text-[16px]'>
             {head}
@@ -12,7 +12,7 @@ const RevenueCard = ({head, amount, num}) => {
                 {amount}
             </div>
             <div className='text-blue-700 underline underline-offset-2'>
-                {num} orders {">"}
+                {num}
             </div>
         </div>
         
