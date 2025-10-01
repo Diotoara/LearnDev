@@ -1,7 +1,4 @@
-import { div } from 'motion/react-client'
-import React from 'react'
-import RevenueCard  from './components/RevenueCard'
-import Payout from './components/Payout'
+import Navbar from './sections/Navbar'
 import Sidebar from './components/Sidebar'
 import Cards from './sections/Home'
 
@@ -10,6 +7,10 @@ const dashboard = () => {
   return (
     <>
     <div className='flex'>
+
+        <div className="fixed top-0 w-300 ml-[224px] bg-white shadow-md z-50 ">
+          <Navbar />
+        </div>
 
       <div>
         <Sidebar/>
