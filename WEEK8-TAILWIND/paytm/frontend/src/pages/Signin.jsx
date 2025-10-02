@@ -2,6 +2,7 @@ import Heading from "../components/Heading"
 import SubHeading from "../components/SubHeading"
 import InputBox from "../components/InputBox"
 import Button from "../components/Button"
+import {Link} from "react-router-dom"
 
 const Signin = () => {
   return (
@@ -20,12 +21,14 @@ const Signin = () => {
                 <InputBox label={"Password"} placeholder={""} />
             </div>
             <div className="pt-4 flex justify-center ">
-                <Button text={"Sign in"} />
+                <Button text={"Sign in"} to={"/dashboard"} />
             </div>
             <div className="flex justify-center">
                 Dont have an account?
-                <div className="underline cursor-pointer">
-                    Sign Up
+                <div className="underline ml-1 cursor-pointer">
+                    <Link to={"/signup"} >
+                        Sign Up
+                    </Link>
                 </div>
             </div>
         </div>

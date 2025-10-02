@@ -1,5 +1,5 @@
 
-
+import { Link } from "react-router-dom"
 import Heading  from "../components/Heading"
 import SubHeading from "../components/SubHeading"
 import InputBox from "../components/InputBox"
@@ -30,14 +30,16 @@ function Signup(){
                     <InputBox label={"Password"} placeholder={""} />
                 </div>
                 <div className="pl-6">
-                    <Button text={"Sign Up"}/>
+                    <Button text={"Sign Up"} to={"/signin"}/>
                 </div>
                 <div className="flex justify-center font-medium text-[16px]">
                     <div>
                     Already have an account?
                     </div>
-                    <div className="underline ml-1 cursor-pointer">
+                    <div >
+                        <Link className="underline ml-1 cursor-pointer" to={"/signin"} >
                         Login
+                        </Link>
                     </div>
                 </div>
             </div>
