@@ -8,15 +8,16 @@ const dashboard = () => {
     <>
     <div className='flex'>
 
-        <div className="fixed top-0 w-300 ml-[224px] bg-white shadow-md z-50 ">
+        <div className="fixed top-0 w-324 ml-[224px] bg-white z-50 ">
           <Navbar />
         </div>
+
 
       <div>
         <Sidebar/>
       </div>
 
-      <div className='flex-1'>
+      <div className='flex-1 pt-14'>
         <Cards/>
       </div>
 
