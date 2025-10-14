@@ -14,10 +14,10 @@ function isLegal(user: User) {
 }
 
 const user = {
-	firstName: "harkirat",
-	lastName: "singh",
-	email: "email@gmail.com",
-	age: 7,
+	firstName: "Aryan",
+	lastName: "Jha",
+	email: "aryan@gmail.com",
+	age: 19,
 };
 
 let x:any = isLegal(user)
