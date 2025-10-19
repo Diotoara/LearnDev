@@ -24,8 +24,8 @@ model User {
 model Todo {
   id Int @id @default(autoincrement())
   Title String
-  Done Boolean @default(false)
   Description String?
+  Done Boolean @default(false)
   author User @relation(fields: [UserId], references: [id])
   UserId Int
 }
