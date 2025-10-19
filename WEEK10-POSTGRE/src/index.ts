@@ -1,9 +1,11 @@
 // fnctn to create a user tableimport { Client } from 'pg'
 
 import { Client } from 'pg';
+import dotenv from "dotenv";
+dotenv.config();
 
 const client = new Client({
-    connectionString : "postgresql://neondb_owner:npg_YOQgwT5cL1Im@ep-fancy-hall-a1e81rgc-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+    connectionString : process.env.PSQL_URL
 })
 
 async function CreateUserTable(){
