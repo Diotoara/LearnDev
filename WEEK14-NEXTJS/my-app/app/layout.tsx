@@ -24,13 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* NavBar  */}
-        <div className="h-10 w-full flex justify-between items-center border-b-2 px-10 ">
-          <div className=" cursor-pointer text-xl font-bold" >Medium</div>
-          <div className="bg-blue-800 px-[10] cursor-pointer py-[5] rounded-2xl text-md font-bold text-white" >Profile</div>
-        </div>
-        {/* navBar ends */}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {children}
       </body>
     </html>
