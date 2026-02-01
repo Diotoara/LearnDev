@@ -23,6 +23,7 @@ app.post("/generate-otp",(req,res)=>{
 
 app.post("/reset-password",(req,res)=>{
     const {email, otp, newPassword} = req.body;
+    console.log("STORE VALUE:", otpStore[email], "INPUT:", otp);
     if(!email || !otp || !newPassword){
         return res.status(403).json({
             message : "Email, OTP and new password is required"
