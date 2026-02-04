@@ -1,5 +1,7 @@
 "use client"
 
+//make it like https://real-time-chat-amritwt.vercel.app/
+
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
